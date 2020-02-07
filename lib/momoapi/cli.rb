@@ -23,8 +23,16 @@ module Momoapi
         'Content-Type' => 'application/json'
       }
       HTTParty.post('https://sandbox.momodeveloper.mtn.com/v1_0/apiuser',
-                    headers: headers,
-                    body: body)
+                    body: body,
+                    headers: headers)
+    end
+
+    def generate_api_key(uuid, key)
+      headers = {
+        'Ocp-Apim-Subscription-Key' => key
+      }
+      url = "https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/#{uuid}/apikey"
+      HTTParty.post(url, headers: headers)
     end
   end
 end
