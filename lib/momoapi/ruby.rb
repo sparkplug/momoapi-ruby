@@ -1,4 +1,6 @@
-require "momoapi/ruby/version"
+# frozen_string_literal: true
+
+require 'momoapi/ruby/version'
 
 module Momoapi
   module Ruby

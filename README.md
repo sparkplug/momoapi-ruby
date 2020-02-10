@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.com/sparkplug/momoapi-ruby.svg?branch=master)](https://travis-ci.com/sparkplug/momoapi-ruby)
 
+
+## Usage
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,9 +21,12 @@ Or install it yourself as:
 
     $ gem install momoapi-ruby
 
-## Usage
 
-TODO: Write usage instructions here
+## Creating a sandbox environment API user
+
+```
+momoapi --host Your-Provider-Callback-Host --key Your-Ocp-Apim-Subscription-Key
+```
 
 ## Development
 
@@ -38,4 +44,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Momoapi::Ruby project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/momoapi-ruby/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Momoapi::Ruby project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sparkplug/momoapi-ruby/blob/add-cli-tool/CODE_OF_CONDUCT.md).
