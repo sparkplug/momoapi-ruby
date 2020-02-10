@@ -3,5 +3,42 @@
 
 require 'bundler/setup'
 require 'momoapi'
+require 'optparse'
+require_relative '../lib/momoapi/cli'
 
-Momoapi::CLI.new.create_sandbox_user(ARGV[0], ARGV[1])
+# option = {}
+# opt = OptionParser.new
+
+# opt.on('-h', '--host', String,
+#        'Provider callback host') do |v|
+#   option[:host] = v
+# end
+
+# opt.on('-k', '--key', String,
+#        'Subscription key') do |v|
+#   option[:key] = v
+# end
+
+# # puts ARGV
+
+# opt.parse!(ARGV)
+# puts opt
+
+# # puts "********#{option}************"
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: momoapi --host host --key key'
+
+  opts.on('-h', '--host=HOST', String,
+          'Provider callback host') do |v|
+    options[:host] = v
+  end
+
+  opts.on('-k', '--key=KEY', String,
+          'Subscription key') do |v|
+    options[:key] = v
+  end
+end.parse!
+
+Momoapi::CLI.new.create_sandbox_user(options)
