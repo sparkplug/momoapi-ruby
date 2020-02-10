@@ -6,42 +6,40 @@ require 'uuid'
 
 module Momoapi
   class CLI
-    def create_sandbox_user(option)
-      puts 'Creating MoMo Sandbox user'
-      uuid = UUID.new.generate
-      host = option[:host]
-      key = option[:key]
-      make_api_request(host, key, uuid)
-      response = generate_api_key(uuid, key)
+    def initialize(option)
+      @uuid = UUID.new.generate
+      @host = option[:host]
+      @key = option[:key]
+      create_sandbox_user
     end
 
-    def make_api_request(host, key, id)
-      body = { "providerCallbackHost": host }
+    def create_sandbox_user
+      body = { "providerCallbackHost": @host }
       headers = {
-        'X-Reference-Id' => id,
-        'Ocp-Apim-Subscription-Key' => key,
-        'Content-Type' => 'application/json'
+        'X-Reference-Id' => @uuid,
+        'Ocp-Apim-Subscription-Key' => @key
       }
       response = HTTParty.post('https://sandbox.momodeveloper.mtn.com/v1_0/apiuser',
-                    body: body,
-                    headers: headers)
+                               body: body,
+                               options: { headers: headers })
       if response.code == 201
-        puts "Sandbox user created"
-      else 
-        puts "Error creating user"
+        puts 'Sandbox user created'
+        generate_api_key
+      else
+        puts response.parsed_response['message']
       end
     end
 
-    def generate_api_key(uuid, key)
+    def generate_api_key
       headers = {
-        'Ocp-Apim-Subscription-Key' => key
+        'Ocp-Apim-Subscription-Key' => @key
       }
-      url = "https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/#{uuid}/apikey"
+      url = "https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/#{@uuid}/apikey"
       response = HTTParty.post(url, headers: headers)
       if response.code == 201
-        puts response.parsed_response
-      else 
-        puts "Error creating API key"
+        puts "User ID: #{@uuid} \n API key: #{response.parsed_response.apikey}"
+      else
+        puts 'Error creating API key'
       end
     end
   end
