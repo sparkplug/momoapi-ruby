@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-module Momoapi
-  class ClientInterface
+module Client
+  def fetch_auth_token
+    raise 'Not implemented'
   end
 
-  class Client < ClientInterface
-    def fetch_auth_token; end
+  def fetch_balance
+    raise 'Not implemented'
+  end
 
-    def fetch_balance; end
-
-    def fetch_transaction_status; end
+  def fetch_transaction_status
+    raise 'Not implemented'
   end
 end
