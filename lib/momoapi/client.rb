@@ -12,4 +12,7 @@ module Client
   def fetch_transaction_status
     raise 'Not implemented'
   end
+
+  class Momoapi
+  end
 end
