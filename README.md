@@ -28,6 +28,18 @@ Or install it yourself as:
 momoapi --host Your-Provider-Callback-Host --key Your-Ocp-Apim-Subscription-Key
 ```
 
+## Using live credentials
+
+Add these configurations in an initializer file:
+
+```
+Momoapi.configure do |config|
+  config.host = 'Your Provider Callback Host'
+  config.key = 'Your Subscription Key'
+end
+```
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'momoapi'
-require 'uuid'
 require 'faraday'
 require 'json'
 
