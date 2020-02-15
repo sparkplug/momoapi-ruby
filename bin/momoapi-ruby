@@ -2,9 +2,9 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'momoapi'
+require 'momoapi-ruby'
 require 'optparse'
-require_relative '../lib/momoapi/cli'
+require_relative '../lib/momoapi-ruby/cli'
 
 options = {}
 OptionParser.new do |opts|

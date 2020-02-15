@@ -2,11 +2,11 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'momoapi/ruby/version'
+require 'momoapi-ruby/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'momoapi-ruby'
-  spec.version       = Momoapi::Ruby::VERSION
+  spec.version       = Momoapi::VERSION
   spec.authors       = ['Lydia Sanyu Naggayi']
   spec.email         = ['lydiansanyu@gmail.com']
 
@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
                      .reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.bindir        = 'bin'
-  spec.executables   = 'momoapi'
+  spec.executables   = 'momoapi-ruby'
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 2.0'

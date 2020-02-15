@@ -2,3 +2,7 @@ Documentation:
   Enabled: false
 Metrics/MethodLength: 
   Max: 20
+Naming/FileName:
+  Enabled: false  
+Lint/DuplicateMethods:
+  Enabled: false

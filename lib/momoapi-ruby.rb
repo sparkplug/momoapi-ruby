@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'momoapi/config'
-require 'momoapi/ruby/version'
-require 'momoapi/cli'
+require 'momoapi-ruby/config'
+require 'momoapi-ruby/version'
+require 'momoapi-ruby/cli'
 
 module Momoapi
   class << self

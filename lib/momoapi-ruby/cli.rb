@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'momoapi'
+require 'momoapi-ruby'
 require 'faraday'
 require 'json'
 
