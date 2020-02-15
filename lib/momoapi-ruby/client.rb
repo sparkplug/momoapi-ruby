@@ -1,18 +1,23 @@
 # frozen_string_literal: true
 
-module Client
-  def fetch_auth_token
-    raise 'Not implemented'
-  end
+require 'momoapi-ruby/request'
 
-  def fetch_balance
-    raise 'Not implemented'
-  end
+module Momoapi
+  class Client
+    def initialize; end
 
-  def fetch_transaction_status
-    raise 'Not implemented'
-  end
+    def get_auth_token(_product, url, subscription_key)
+      headers = {
+        "Content-Type": 'application/json',
+        "Ocp-Apim-Subscription-Key": subscription_key
+      }
+      r = Request.new('post', url, headers)
+      response = r.request
+      puts response
+    end
 
-  class Momoapi
+    def get_balance; end
+
+    def get_transaction_status; end
   end
 end

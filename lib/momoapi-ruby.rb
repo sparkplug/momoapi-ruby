@@ -3,6 +3,7 @@
 require 'momoapi-ruby/config'
 require 'momoapi-ruby/version'
 require 'momoapi-ruby/cli'
+require 'momoapi-ruby/collection'
 
 module Momoapi
   class << self

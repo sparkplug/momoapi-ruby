@@ -3,6 +3,8 @@ Documentation:
 Metrics/MethodLength: 
   Max: 20
 Naming/FileName:
-  Enabled: false  
+  Enabled: false
 Lint/DuplicateMethods:
+  Enabled: false
+Naming/AccessorMethodName:
   Enabled: false
