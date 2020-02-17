@@ -6,12 +6,12 @@ module Momoapi
   class Client
     def initialize; end
 
-    def get_auth_token(_product, url, subscription_key)
+    def get_auth_token(path, subscription_key)
       headers = {
-        "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
-      r = Request.new('post', url, headers)
+      body = {}
+      r = Request.new('post', path, headers, body)
       response = r.request
       puts response
     end

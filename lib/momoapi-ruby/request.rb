@@ -3,31 +3,32 @@
 require 'faraday'
 
 class Request
-  def initialize(method, url, headers, body = {})
+  def initialize(method, path, headers, body)
     @method = method.downcase
-    @url = url
+    @url = 'https://sandbox.momodeveloper.mtn.com'
+    @path = path
     @headers = headers
     @body = body
   end
 
   def request
+    username = '783a8f21-3fc6-4e39-aa76-da8e562fba7e'
+    password = '313cfaf9a40b4029b7139f4c9d8afb23'
+    conn = Faraday.new(url: @url)
+    conn.headers = @headers
+    conn.basic_auth(username, password)
+
     case @method
     when 'get'
-      response = Faraday.get(@url) do |req|
-        @headers.each { |k, v| req.headers[k] = v } unless @headers.empty?
-        req.body = @body.to_json
-      end
-      response.status
+      @resp = conn.get(@path)
     when 'post'
-      response = Faraday.post(@url) do |req|
-        @headers.each { |k, v| req.headers[k] = v } unless @headers.empty?
-        req.body = @body.to_json
-      end
-      response.status
+      @resp = conn.post(@path)
     end
+    puts @resp.inspect
+    puts interpret_response(@resp)
   end
 
-  def interpret_response
+  def interpret_response(response)
     response_code = response.status
     response_body = response.body
     {

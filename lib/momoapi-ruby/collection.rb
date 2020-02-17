@@ -5,8 +5,8 @@ require 'momoapi-ruby/client'
 module Momoapi
   class Collection < Client
     def get_auth_token
-      url = 'https://sandbox.momodeveloper.mtn.com/collection/token/'
-      super('COLLECTIONS', url, 'fa974cf4f0ae435c9278205a71206f1b')
+      path = 'collection/token/'
+      super(path, 'b5e0f061fa5a4cbbbd2192530b7cedfb')
     end
 
     def get_balance; end
