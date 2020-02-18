@@ -11,9 +11,9 @@ class Request
     @body = body
   end
 
-  def request
-    username = '783a8f21-3fc6-4e39-aa76-da8e562fba7e'
-    password = '313cfaf9a40b4029b7139f4c9d8afb23'
+  def send_request
+    username = Momoapi.config.collection_user_id
+    password = Momoapi.config.collection_api_secret
     conn = Faraday.new(url: @url)
     conn.headers = @headers
     conn.basic_auth(username, password)
@@ -24,6 +24,7 @@ class Request
     when 'post'
       @resp = conn.post(@path)
     end
+    puts @resp
     puts @resp.inspect
     puts interpret_response(@resp)
   end
