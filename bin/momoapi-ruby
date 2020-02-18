@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'momoapi-ruby'
+require 'optparse'
+require_relative '../lib/momoapi-ruby/cli'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: momoapi --host host --key key'
+
+  opts.on('-h', '--host=HOST', String,
+          'Provider callback host') do |v|
+    options[:host] = v
+  end
+
+  opts.on('-k', '--key=KEY', String,
+          'Subscription key') do |v|
+    options[:key] = v
+  end
+end.parse!
+
+Momoapi::CLI.new(options)
