@@ -1,0 +1,12 @@
+Documentation:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
+Metrics/MethodLength: 
+  Max: 25
+Metrics/ParameterLists:
+  Max: 8
+Lint/DuplicateMethods:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
