@@ -11,7 +11,7 @@ module Momoapi
     end
 
     def get_balance
-      path = '/collection/v1_0/account/balance/'
+      path = '/collection/v1_0/account/balance'
       super(path, Momoapi.config.collection_primary_key)
     end
 
