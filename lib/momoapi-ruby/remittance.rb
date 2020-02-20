@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'momoapi-ruby/config'
 require 'momoapi-ruby/client'
 
