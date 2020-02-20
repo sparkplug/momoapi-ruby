@@ -61,14 +61,14 @@ module Momoapi
       send_request('get', path, headers, body)
     end
 
-    def get_transaction_status(_transaction_id, path, subscription_key)
+    def get_transaction_status(path, subscription_key)
       headers = {
         "X-Target-Environment": 'sandbox',
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
       body = {}
-      send_request('get', path, headers, body).send_request
+      send_request('get', path, headers, body)
     end
   end
 end
