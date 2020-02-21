@@ -40,7 +40,7 @@ module Momoapi
         "currency": currency,
         "amount": amount.to_s
       }
-      path = '/collection/v1_0/requesttopay/'
+      path = '/collection/v1_0/requesttopay'
       send_request('post', path, headers, body)
     end
   end

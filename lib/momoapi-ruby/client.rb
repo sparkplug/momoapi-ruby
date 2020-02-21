@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 require 'faraday'
-require 'pry'
 
 require 'momoapi-ruby/config'
-require 'momoapi-ruby/request'
+require 'momoapi-ruby/errors'
 
 module Momoapi
   class Client
-    def send_request(method, path, headers, _body)
+    def send_request(method, path, headers, *_body)
       auth_token = get_auth_token['access_token']
       conn = Faraday.new(url: Momoapi.config.base_url)
       conn.headers = headers
@@ -20,22 +19,23 @@ module Momoapi
       when 'post'
         response = conn.post(path)
       end
-      # puts interpret_response(resp)
-      puts response.inspect
+      interpret_response(response)
     end
 
-    def interpret_response(response)
-      response_code = response.status
-      response_body = response.body
-      {
-        body: response_body,
-        code: response_code
+    def interpret_response(resp)
+      response = {
+        body: JSON.parse(resp.body),
+        code: resp.status
       }
+      # unless 200 <= resp.status && resp.status < 300
+      #   handle_error(response[:code], response[:body])
+      # end
+      response
     end
 
-    def handle_error_response
-      # TO DO: Add error handling
-    end
+    # def handle_error(response_code, response_body)
+    #   raise APIError(response_code, response_body)
+    # end
 
     def get_auth_token(path, subscription_key)
       headers = {
@@ -57,8 +57,7 @@ module Momoapi
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
-      body = {}
-      send_request('get', path, headers, body)
+      send_request('get', path, headers)
     end
 
     def get_transaction_status(path, subscription_key)
@@ -67,8 +66,7 @@ module Momoapi
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
-      body = {}
-      send_request('get', path, headers, body)
+      send_request('get', path, headers)
     end
   end
 end
