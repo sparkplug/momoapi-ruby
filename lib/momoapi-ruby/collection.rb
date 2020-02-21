@@ -11,7 +11,7 @@ module Momoapi
     end
 
     def get_balance
-      path = '/collection/v1_0/account/balance/'
+      path = '/collection/v1_0/account/balance'
       super(path, Momoapi.config.collection_primary_key)
     end
 
@@ -40,9 +40,8 @@ module Momoapi
         "currency": currency,
         "amount": amount.to_s
       }
-      path = '/collection/v1_0/requesttopay/'
-      r = Request.new('post', path, headers, body)
-      r.send_request
+      path = '/collection/v1_0/requesttopay'
+      send_request('post', path, headers, body)
     end
   end
 end
