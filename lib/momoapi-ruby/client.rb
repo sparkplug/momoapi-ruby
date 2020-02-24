@@ -53,7 +53,7 @@ module Momoapi
 
     def get_balance(path, subscription_key)
       headers = {
-        "X-Target-Environment": 'sandbox',
+        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
@@ -62,7 +62,7 @@ module Momoapi
 
     def get_transaction_status(path, subscription_key)
       headers = {
-        "X-Target-Environment": 'sandbox',
+        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }

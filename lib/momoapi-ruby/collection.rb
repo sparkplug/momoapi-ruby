@@ -24,7 +24,7 @@ module Momoapi
                        payee_note = '', payer_message = '', currency = 'EUR')
       uuid = Faraday.get('https://www.uuidgenerator.net/api/version4').body.chomp
       headers = {
-        "X-Target-Environment": 'sandbox',
+        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
         "X-Reference-Id": uuid,
         "Ocp-Apim-Subscription-Key": Momoapi.config.collection_primary_key

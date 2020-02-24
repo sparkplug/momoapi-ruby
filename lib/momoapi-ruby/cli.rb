@@ -38,7 +38,8 @@ module Momoapi
         req.headers['Ocp-Apim-Subscription-Key'] = @key
       end
       if response.status == 201
-        puts " User ID: #{@uuid} \n API key: #{response.body}"
+        key = JSON.parse(response.body)
+        puts " User ID: #{@uuid} \n API key: #{key["apiKey"]}"
       else
         # TO DO: Add error handling here
         puts 'Error creating API key'
