@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'securerandom'
+
 require 'momoapi-ruby/config'
 require 'momoapi-ruby/client'
 
@@ -22,7 +24,7 @@ module Momoapi
 
     def request_to_pay(phone_number, amount, external_id,
                        payee_note = '', payer_message = '', currency = 'EUR')
-      uuid = Faraday.get('https://www.uuidgenerator.net/api/version4').body.chomp
+      uuid = SecureRandom.uuid
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
@@ -42,6 +44,7 @@ module Momoapi
       }
       path = '/collection/v1_0/requesttopay'
       send_request('post', path, headers, body)
+      uuid
     end
   end
 end

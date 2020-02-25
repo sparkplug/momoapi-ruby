@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-class APIError < StandardError
-  def initialize(_title, code, message)
-    super(title: title, status: code, detail: message)
+module Error
+  class APIError < StandardError
+    def initialize(message, code)
+      @code = code
+      super(message)
+    end
   end
 end
