@@ -24,18 +24,18 @@ module Momoapi
 
     def interpret_response(resp)
       response = {
-        body: JSON.parse(resp.body),
+        body: resp.body,
         code: resp.status
       }
-      # unless 200 <= resp.status && resp.status < 300
-      #   handle_error(response[:code], response[:body])
-      # end
+      unless resp.status >= 200 && resp.status < 300
+        handle_error(response[:body], response[:status])
+      end
       response
     end
 
-    # def handle_error(response_code, response_body)
-    #   raise APIError(response_code, response_body)
-    # end
+    def handle_error(response_body, response_code)
+      raise Error::APIError.new(response_body, response_code)
+    end
 
     def get_auth_token(path, subscription_key)
       headers = {
@@ -53,7 +53,7 @@ module Momoapi
 
     def get_balance(path, subscription_key)
       headers = {
-        "X-Target-Environment": 'sandbox',
+        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
@@ -62,7 +62,7 @@ module Momoapi
 
     def get_transaction_status(path, subscription_key)
       headers = {
-        "X-Target-Environment": 'sandbox',
+        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }

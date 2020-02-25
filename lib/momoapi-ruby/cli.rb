@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
-require 'momoapi-ruby'
 require 'faraday'
 require 'json'
+require 'securerandom'
+
+require 'momoapi-ruby/config'
+require 'momoapi-ruby/errors'
+require 'momoapi-ruby'
 
 module Momoapi
   class CLI
     def initialize(option)
-      @uuid = Faraday.get('https://www.uuidgenerator.net/api/version4').body.chomp
+      @uuid = SecureRandom.uuid
       @host = option[:host]
       @key = option[:key]
       create_sandbox_user
@@ -22,27 +26,27 @@ module Momoapi
         req.headers['Ocp-Apim-Subscription-Key'] = @key
         req.body = body.to_json
       end
-      if response.status == 201
-        generate_api_key
-      else
-        # TO DO: Add error handling here
-        puts response.body
+
+      unless response.status == 201
+        raise Error::APIError.new(response.body, response.status)
       end
+
+      generate_api_key
     end
 
     def generate_api_key
       @url = 'https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/' +
              @uuid + '/apikey'
-      puts @url
       response = Faraday.post(@url) do |req|
         req.headers['Ocp-Apim-Subscription-Key'] = @key
       end
-      if response.status == 201
-        puts " User ID: #{@uuid} \n API key: #{response.body}"
-      else
-        # TO DO: Add error handling here
-        puts 'Error creating API key'
+
+      unless response.status == 201
+        raise Error::APIError.new(response.body, response.status)
       end
+
+      key = JSON.parse(response.body)
+      puts "\n User ID: #{@uuid} \n API key: #{key['apiKey']} \n\n"
     end
   end
 end
