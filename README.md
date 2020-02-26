@@ -26,7 +26,7 @@ Or install it yourself as:
 Type this command into your terminal:
 
 ```
-momoapi --host Your-Provider-Callback-Host --key Your-Ocp-Apim-Subscription-Key
+momoapi-ruby --host Your-Provider-Callback-Host --key Your-Ocp-Apim-Subscription-Key
 ```
 
 A User ID and API Key will be generated:
@@ -37,7 +37,6 @@ API key: Generated API key
 ```
 
 ## Using live credentials
-
 Add the following configurations in an initializer file (for example, `config/initializers/momoapi-ruby.rb` in a Rails app):
 
 ```
@@ -48,6 +47,38 @@ Momoapi.configure do |config|
   config.collection_user_id = 'Your Collection User ID'
   config.collection_api_secret = 'Your Collection API Key'
 end
+```
+
+## Collections
+The collections client can be created with the following paramaters. Note that the `COLLECTION_USER_ID` and `COLLECTION_API_SECRET` for production are provided on the MTN OVA dashboard;
+
+* `collection_primary_key`: Primary Key for the `Collection` product on the developer portal.
+* `collection_user_id`: For sandbox, use the one generated with the `momoapi-ruby` command.
+* `collection_api_secret`: For sandbox, use the one generated with the `momoapi-ruby` command.
+
+You can create a collection client with the following:
+
+```ruby
+require 'momoapi-ruby'
+
+collection = Momoapi::Collection.new
+```
+
+### Methods
+1. `request_to_pay`: This operation is used to request a payment from a consumer (Payer). The payer will be asked to authorize the payment. The transaction is executed once the payer has authorized the payment. The transaction will be in status PENDING until it is authorized or declined by the payer or it is timed out by the system. Status of the transaction can be validated by using `get_transaction_status`.
+
+2. `get_transaction_status`: Retrieve transaction information using the `transaction_id` returned by `request_to_pay`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
+
+3. `get_balance`: Get the balance of the account.
+
+### Sample Code
+
+```ruby
+require 'momoapi-ruby'
+
+collection = Momoapi::Collection.new
+collection.requestToPay(
+    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
 ```
 
 ## Contributing
