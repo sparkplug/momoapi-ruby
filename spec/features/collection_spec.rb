@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe Momoapi::Collection do
-  before do
+  before(:all) do
     Momoapi.configure do |config|
       config.base_url = 'https://sandbox.momodeveloper.mtn.com'
       config.callback_host = 'https://webhook.site/8e412414-2154-4d06-90c4-5e141c9f2910'
@@ -13,11 +13,28 @@ RSpec.describe Momoapi::Collection do
     end
   end
 
-  # context 'valid credentials' do
-  #   it 'generates an auth token' do
-  #     @collection = Momoapi::Collection.new
-  #     @collection.get_auth_token
-  #     # expect(token).to have_http_status 200
-  #   end
-  # end
+  describe 'collections', vcr: { record: :new_episodes } do
+    it 'gets balance' do
+      # response = Momoapi::Collection.new.get_balance
+      # expect(response).to have_http_status 200
+      expect { Momoapi::Collection.new.get_balance }
+        .to raise_error(Error::APIError)
+    end
+
+    it 'gets transaction status' do
+      ref = '888a79ff-0535-4a9f-8a66-457f7903bd8a'
+      response = Momoapi::Collection.new.get_transaction_status(ref)
+      expect(response[:code]).to eq(200)
+    end
+
+    it 'makes request to pay' do
+      expect do
+        Momoapi::Collection.new.request_to_pay(
+          '0775671360',
+          '5.0', '6353636',
+          'testing', 'testing', 'EUR'
+        )
+      end .to raise_error(Error::APIError)
+    end
+  end
 end

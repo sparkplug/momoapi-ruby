@@ -4,7 +4,7 @@ module Error
   class APIError < StandardError
     def initialize(message, code)
       @code = code
-      super(message)
+      super("Error - code #{code}, message: #{message}")
     end
   end
 end

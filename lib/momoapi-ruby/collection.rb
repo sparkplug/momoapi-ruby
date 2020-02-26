@@ -44,7 +44,7 @@ module Momoapi
       }
       path = '/collection/v1_0/requesttopay'
       send_request('post', path, headers, body)
-      uuid
+      { transaction_reference: uuid }
     end
   end
 end

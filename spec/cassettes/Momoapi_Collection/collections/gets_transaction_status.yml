@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/collection/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - b5e0f061fa5a4cbbbd2192530b7cedfb
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Wed, 26 Feb 2020 14:48:37 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI2VDE1OjQ4OjM4LjI0MiIsInNlc3Npb25JZCI6IjFjNjJjMTg5LTIyNzEtNDAzYy1hNTIzLTMyOWUxMzNkYmRhNCJ9.OaehnsCtAGPMrI1eUDZKGNUGV0i7mAG0BXT3hqumURGtVZO-JoxUfQoFCx8Zirs4khJvbjeORHCxAyV69XpUk3FVX30vfTNOL_uZMTQrzI6uPpUa5qyDqUY0deX0_SjmQ7-8AyIIZRFgS9Qa8iKwLIO7JtYfsH38sDTUaXx5tVjnir4A4VzwywcwEHqBzSCmTR1No4wRjdWF4gPnvar3WdzfwqyjhANxx6BB6D2zSGrGJTe_OM2Dv9v6YLyXycb6X5S2ECpQzfsVfpDIB1E_A87I4lG_cC0bqG52QBtwXBsj6qSF2UB7RAQhsNb-9NOgeiaS8dmv5HEqXuDpgCRXHw","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Wed, 26 Feb 2020 14:48:38 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay/888a79ff-0535-4a9f-8a66-457f7903bd8a
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - b5e0f061fa5a4cbbbd2192530b7cedfb
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI2VDE1OjQ4OjM4LjI0MiIsInNlc3Npb25JZCI6IjFjNjJjMTg5LTIyNzEtNDAzYy1hNTIzLTMyOWUxMzNkYmRhNCJ9.OaehnsCtAGPMrI1eUDZKGNUGV0i7mAG0BXT3hqumURGtVZO-JoxUfQoFCx8Zirs4khJvbjeORHCxAyV69XpUk3FVX30vfTNOL_uZMTQrzI6uPpUa5qyDqUY0deX0_SjmQ7-8AyIIZRFgS9Qa8iKwLIO7JtYfsH38sDTUaXx5tVjnir4A4VzwywcwEHqBzSCmTR1No4wRjdWF4gPnvar3WdzfwqyjhANxx6BB6D2zSGrGJTe_OM2Dv9v6YLyXycb6X5S2ECpQzfsVfpDIB1E_A87I4lG_cC0bqG52QBtwXBsj6qSF2UB7RAQhsNb-9NOgeiaS8dmv5HEqXuDpgCRXHw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '229'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Wed, 26 Feb 2020 14:48:39 GMT
+    body:
+      encoding: UTF-8
+      string: '{"financialTransactionId":"386380485","externalId":"6353636","amount":"5","currency":"EUR","payer":{"partyIdType":"MSISDN","partyId":"0248888736"},"payerMessage":"Pay
+        for product a","payeeNote":"payer note","status":"SUCCESSFUL"}'
+    http_version: null
+  recorded_at: Wed, 26 Feb 2020 14:48:39 GMT
+recorded_with: VCR 5.1.0
