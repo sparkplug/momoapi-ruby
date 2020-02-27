@@ -28,7 +28,7 @@ module Momoapi
         code: resp.status
       }
       unless resp.status >= 200 && resp.status < 300
-        handle_error(response[:body], response[:status])
+        handle_error(response[:body], response[:code])
       end
       response
     end
@@ -48,7 +48,11 @@ module Momoapi
       conn.headers = headers
       conn.basic_auth(username, password)
       response = conn.post(path)
-      JSON.parse(response.body)
+      begin
+        JSON.parse(response.body)
+      rescue JSON::ParserError
+        response.body.to_s
+      end
     end
 
     def get_balance(path, subscription_key)

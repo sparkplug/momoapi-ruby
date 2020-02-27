@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/token
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - 0e041b269b3746c9ad43db4aed203684
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://52.236.59.28:8080/token/
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 10:16:17 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 10:16:17 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - 0c74e0a1cf344d45a3d02b1da52c12f5
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:02:08 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjAyOjA5LjIxNyIsInNlc3Npb25JZCI6IjVmYzZkNmQxLWY5OWItNDYxYy05NmI5LTJmNjljZjE1NWJkYiJ9.LYRJPc0yGZ8EbAiCky2M_Ri8yElq7GaCCnedERXmESv4VD5gQ82tU27F-oKcp6abUjkYDp5CQIupiOGwF2372g0ifrdY0oLlD0eMd0Gw-vNJulptwK_eTr_1TrLirHL7ImhmqPnqV8WtIGkFl5fRvvW0lsYfaC7MZLkcwM_rgHzUqRqA0_98ZOVj_a3iborrzErHut6Zk8_DGR6v685rszV1gmttymRCIwT-puU9WqIJqSML64RdqB_kgNCxMiuaaCcbjn2yMj7hFvS8ZTiMyjGh1Z91VOe-L742v_C0HhGLCnp74ADDUQYBcEpQYVCBunlcnF-eC0Xfpw64AsDe3g","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:02:09 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/v1_0/transfer/888a79ff-0535-4a9f-8a66-457f7903bd8a
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - 0c74e0a1cf344d45a3d02b1da52c12f5
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjAyOjA5LjIxNyIsInNlc3Npb25JZCI6IjVmYzZkNmQxLWY5OWItNDYxYy05NmI5LTJmNjljZjE1NWJkYiJ9.LYRJPc0yGZ8EbAiCky2M_Ri8yElq7GaCCnedERXmESv4VD5gQ82tU27F-oKcp6abUjkYDp5CQIupiOGwF2372g0ifrdY0oLlD0eMd0Gw-vNJulptwK_eTr_1TrLirHL7ImhmqPnqV8WtIGkFl5fRvvW0lsYfaC7MZLkcwM_rgHzUqRqA0_98ZOVj_a3iborrzErHut6Zk8_DGR6v685rszV1gmttymRCIwT-puU9WqIJqSML64RdqB_kgNCxMiuaaCcbjn2yMj7hFvS8ZTiMyjGh1Z91VOe-L742v_C0HhGLCnp74ADDUQYBcEpQYVCBunlcnF-eC0Xfpw64AsDe3g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '259'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:02:09 GMT
+    body:
+      encoding: UTF-8
+      string: '{"amount":"5","currency":"EUR","financialTransactionId":"386380485","externalId":"6353636","payee":{"partyIdType":"PARTY_CODE","partyId":"783a8f21-3fc6-4e39-aa76-da8e562fba7e"},"payerMessage":"Pay
+        for product a","payeeNote":"payer note","status":"SUCCESSFUL"}'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:02:10 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/v1_0/transfer/888a79ff-0535-4a9f-8a66-457f7903bd8ab
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - 0c74e0a1cf344d45a3d02b1da52c12f5
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjAyOjA5LjIxNyIsInNlc3Npb25JZCI6IjVmYzZkNmQxLWY5OWItNDYxYy05NmI5LTJmNjljZjE1NWJkYiJ9.LYRJPc0yGZ8EbAiCky2M_Ri8yElq7GaCCnedERXmESv4VD5gQ82tU27F-oKcp6abUjkYDp5CQIupiOGwF2372g0ifrdY0oLlD0eMd0Gw-vNJulptwK_eTr_1TrLirHL7ImhmqPnqV8WtIGkFl5fRvvW0lsYfaC7MZLkcwM_rgHzUqRqA0_98ZOVj_a3iborrzErHut6Zk8_DGR6v685rszV1gmttymRCIwT-puU9WqIJqSML64RdqB_kgNCxMiuaaCcbjn2yMj7hFvS8ZTiMyjGh1Z91VOe-L742v_C0HhGLCnp74ADDUQYBcEpQYVCBunlcnF-eC0Xfpw64AsDe3g
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Length:
+      - '0'
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:03:03 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:03:03 GMT
+recorded_with: VCR 5.1.0
