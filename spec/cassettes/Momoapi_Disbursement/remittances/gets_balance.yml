@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://52.236.59.28:8080/token/
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:23:45 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:23:45 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:29:36 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjI5OjM2LjM1MyIsInNlc3Npb25JZCI6IjZkNTY0ZDM0LTk4YjAtNDYwOC05NGJkLTkyM2JlYzM1MmRjYyJ9.e2lvLTU5Oi2KjoVp7BggMNurcLC4DtqjrEaCGWRpLQCpPbnDFHI_FHFS1tvOLTxNWSb3gAzH5KvxTmmqFkDatph4EpnubmkcuFRcXzyrpAz1IxOQlZ7zYK0ufI-k4KUCMYwxHb9g5s48YtdQJdUXtspbSVVfuTomGaWUHiheAMPDp7Nz83FVGD5TcGJxnprotXs0kfNoZofX-aqhKFHfnBxPiGOcmA1EceNNsHR_r30La3PqfpSGp5EWtr96VGyG6chjYLldMZi_ENhT5qIrDkMjd-Hr7orrJ7f5_yVlSL5ssEsk1GSTxCQWcyiK6uIwo_eAPn8P5-si0Cw0nPN85Q","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:29:36 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/v1_0/account/balance
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjI5OjM2LjM1MyIsInNlc3Npb25JZCI6IjZkNTY0ZDM0LTk4YjAtNDYwOC05NGJkLTkyM2JlYzM1MmRjYyJ9.e2lvLTU5Oi2KjoVp7BggMNurcLC4DtqjrEaCGWRpLQCpPbnDFHI_FHFS1tvOLTxNWSb3gAzH5KvxTmmqFkDatph4EpnubmkcuFRcXzyrpAz1IxOQlZ7zYK0ufI-k4KUCMYwxHb9g5s48YtdQJdUXtspbSVVfuTomGaWUHiheAMPDp7Nz83FVGD5TcGJxnprotXs0kfNoZofX-aqhKFHfnBxPiGOcmA1EceNNsHR_r30La3PqfpSGp5EWtr96VGyG6chjYLldMZi_ENhT5qIrDkMjd-Hr7orrJ7f5_yVlSL5ssEsk1GSTxCQWcyiK6uIwo_eAPn8P5-si0Cw0nPN85Q
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Server Error
+    headers:
+      Content-Length:
+      - '96'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:29:36 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"Access to target environment is forbidden.","code":"NOT_ALLOWED_TARGET_ENVIRONMENT"}'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:29:37 GMT
+recorded_with: VCR 5.1.0

@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://52.236.59.28:8080/token/
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:23:46 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:23:47 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:29:40 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjI5OjQwLjAzOSIsInNlc3Npb25JZCI6IjVmMjVkNGQ1LWI1ZWItNDU3My05YjIyLTc2MDRiNDk2MTg5ZCJ9.d8yxHi3XfB5Zm0CjfZmBoyYlvInE6xmHnGjAm2n8Dr-G8JPBGCWuZvD_VkPOZJW23RdbyqRVjYzsTK5GaWukraXVoT4Sgym4cxGEJbHbe9qH_PwhQY8KQIlr1ae6HufE53-lMELn-nuCMzfK8YCX18gf84DIBSZFsNDuCy3nZUMbQgrrg0VrmAevX4Zr_M86D4weluhxc7c_LS27qnIH9PjJzOcANSSs8nWuaJ-5l3rc9WK4zEcVe08yViZYgFHoyQ70F5OFEhWzb3b5zdD15PbFVJgvphB05aavqEujLeZPVHDMat3gexVCyS_dKvyPNFabuaMnBuk3yShmpn6F5A","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:29:40 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/v1_0/transfer
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      X-Reference-Id:
+      - 80f458da-fd56-4a76-90f2-df65cfcdaef3
+      Ocp-Apim-Subscription-Key:
+      - 0c74e0a1cf344d45a3d02b1da52c12f5
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjI5OjQwLjAzOSIsInNlc3Npb25JZCI6IjVmMjVkNGQ1LWI1ZWItNDU3My05YjIyLTc2MDRiNDk2MTg5ZCJ9.d8yxHi3XfB5Zm0CjfZmBoyYlvInE6xmHnGjAm2n8Dr-G8JPBGCWuZvD_VkPOZJW23RdbyqRVjYzsTK5GaWukraXVoT4Sgym4cxGEJbHbe9qH_PwhQY8KQIlr1ae6HufE53-lMELn-nuCMzfK8YCX18gf84DIBSZFsNDuCy3nZUMbQgrrg0VrmAevX4Zr_M86D4weluhxc7c_LS27qnIH9PjJzOcANSSs8nWuaJ-5l3rc9WK4zEcVe08yViZYgFHoyQ70F5OFEhWzb3b5zdD15PbFVJgvphB05aavqEujLeZPVHDMat3gexVCyS_dKvyPNFabuaMnBuk3yShmpn6F5A
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Access Denied
+    headers:
+      Content-Length:
+      - '143'
+      Content-Type:
+      - application/json
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Www-Authenticate:
+      - AzureApiManagementKey realm="https://sandbox.momodeveloper.mtn.com/remittance",name="Ocp-Apim-Subscription-Key",type="header"
+      Date:
+      - Thu, 27 Feb 2020 13:29:41 GMT
+    body:
+      encoding: UTF-8
+      string: '{ "statusCode": 401, "message": "Access denied due to invalid subscription
+        key. Make sure to provide a valid key for an active subscription." }'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:29:41 GMT
+recorded_with: VCR 5.1.0
