@@ -4,6 +4,7 @@ require 'momoapi-ruby/config'
 require 'momoapi-ruby/version'
 require 'momoapi-ruby/cli'
 require 'momoapi-ruby/collection'
+require 'momoapi-ruby/disbursement'
 
 module Momoapi
   class << self
