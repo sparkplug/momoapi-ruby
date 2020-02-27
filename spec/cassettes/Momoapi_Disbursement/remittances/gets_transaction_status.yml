@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://52.236.59.28:8080/token/
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:23:46 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:23:46 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:29:38 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjI5OjM4LjA5NSIsInNlc3Npb25JZCI6IjlmMTBiOTI5LTFhZGUtNDE2ZS1iNjQzLWZjOTM1NTc3NDQ0ZiJ9.k8yj-7UX13bwyySxNyrZzN7R3iu2FbDJlsFJl0JqxB79dMlWWQGvwB6Gxin7KmGFXYw87XZNzuFsAKe3s5SThrjIsKtlBIQ_CVcjnWcxxtXOH43VxH4E0A3UPyVEpTt6xeQJ-Xloe0x7mjYtFUaEIg32Nihqfv781Xqq9zuaeNfzBuHA2vHIv-wvmAsr5dnrOwmzEujXV58_rya_ZE5rkkb15ZDwOJ2WzTlrjbUow13vuVKwdT3s7_kwoxV_ObnZHVOsB-e32AHR56Aa_8C99lNFvRIF913xSsDXF-H18B-PoBDLcNz4xNoMLZb2GWz5wLsNLGWGkW2k4DiWCYMfEQ","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:29:38 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/v1_0/transfer/888a79ff-0535-4a9f-8a66-457f7903bd8ab
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI3VDE0OjI5OjM4LjA5NSIsInNlc3Npb25JZCI6IjlmMTBiOTI5LTFhZGUtNDE2ZS1iNjQzLWZjOTM1NTc3NDQ0ZiJ9.k8yj-7UX13bwyySxNyrZzN7R3iu2FbDJlsFJl0JqxB79dMlWWQGvwB6Gxin7KmGFXYw87XZNzuFsAKe3s5SThrjIsKtlBIQ_CVcjnWcxxtXOH43VxH4E0A3UPyVEpTt6xeQJ-Xloe0x7mjYtFUaEIg32Nihqfv781Xqq9zuaeNfzBuHA2vHIv-wvmAsr5dnrOwmzEujXV58_rya_ZE5rkkb15ZDwOJ2WzTlrjbUow13vuVKwdT3s7_kwoxV_ObnZHVOsB-e32AHR56Aa_8C99lNFvRIF913xSsDXF-H18B-PoBDLcNz4xNoMLZb2GWz5wLsNLGWGkW2k4DiWCYMfEQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Length:
+      - '0'
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Thu, 27 Feb 2020 13:29:38 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 13:29:39 GMT
+recorded_with: VCR 5.1.0
