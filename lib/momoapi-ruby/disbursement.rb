@@ -21,7 +21,8 @@ module Momoapi
     end
 
     def transfer(phone_number, amount, external_id,
-                 payee_note = '', payer_message = '', currency = 'EUR')
+                 payee_note = '', payer_message = '',
+                 currency = 'EUR', **options)
       uuid = SecureRandom.uuid
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',
@@ -29,6 +30,9 @@ module Momoapi
         "X-Reference-Id": uuid,
         "Ocp-Apim-Subscription-Key": Momoapi.config.disbursement_primary_key
       }
+      if options[:callback_url]
+        headers['X-Callback-Url'] = options[:callback_url]
+      end
       body = {
         "payer": {
           "partyIdType": 'MSISDN',
@@ -43,6 +47,11 @@ module Momoapi
       path = '/disbursement/v1_0/transfer'
       send_request('post', path, headers, body)
       { transaction_reference: uuid }
+    end
+
+    def is_user_active(phone_number)
+      path = "/disbursement/v1_0/accountholder/msisdn/#{phone_number}/active"
+      super(path, Momoapi.config.disbursement_primary_key)
     end
   end
 end

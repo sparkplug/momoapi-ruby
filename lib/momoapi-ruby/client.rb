@@ -23,8 +23,9 @@ module Momoapi
     end
 
     def interpret_response(resp)
+      body = resp.body.empty? ? '' : JSON.parse(resp.body)
       response = {
-        body: resp.body,
+        body: body,
         code: resp.status
       }
       unless resp.status >= 200 && resp.status < 300
@@ -65,6 +66,15 @@ module Momoapi
     end
 
     def get_transaction_status(path, subscription_key)
+      headers = {
+        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
+        "Content-Type": 'application/json',
+        "Ocp-Apim-Subscription-Key": subscription_key
+      }
+      send_request('get', path, headers)
+    end
+
+    def is_user_active(path, subscription_key)
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
