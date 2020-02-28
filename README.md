@@ -43,14 +43,18 @@ Add the following configurations in an initializer file (for example, `config/in
 Momoapi.configure do |config|
   config.base_url = 'Your MoMo account base URL'
   config.callback_host = 'Your Provider Callback Host'
-  config.collection_primary_key = 'Your Collection Subscription Key'
-  config.collection_user_id = 'Your Collection User ID'
-  config.collection_api_secret = 'Your Collection API Key'
 end
 ```
 
 ## Collections
-The collections client can be created with the following paramaters. Note that the `COLLECTION_USER_ID` and `COLLECTION_API_SECRET` for production are provided on the MTN OVA dashboard;
+The collections client can be created with the following paramaters. Note that the `COLLECTION_USER_ID` and `COLLECTION_API_SECRET` for production are provided on the MTN OVA dashboard.
+
+Add the following to your configuration block:
+```
+  config.collection_primary_key = 'Your Collection Subscription Key'
+  config.collection_user_id = 'Your Collection User ID'
+  config.collection_api_secret = 'Your Collection API Key'
+```
 
 * `collection_primary_key`: Primary Key for the `Collection` product on the developer portal.
 * `collection_user_id`: For sandbox, use the one generated with the `momoapi-ruby` command.
@@ -77,9 +81,91 @@ collection = Momoapi::Collection.new
 require 'momoapi-ruby'
 
 collection = Momoapi::Collection.new
-collection.requestToPay(
+collection.request_to_pay(
     mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
 ```
+An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
+
+## Disbursements
+The disbursements client can be created with the following paramaters. The `DISBURSEMENT_USER_ID` and `DISBURSEMENT_API_SECRET` for production are provided on the MTN OVA dashboard.
+
+Add the following to your configuration block:
+```
+  config.disbursement_primary_key = 'Your Disbursement Subscription Key'
+  config.disbursement_user_id = 'Your Disbursement User ID'
+  config.disbursement_api_secret = 'Your Disbursement API Key'
+```
+
+* `disbursement_primary_key`: Primary Key for the `Disbursement` product on the developer portal.
+* `disbursement_user_id`: For sandbox, use the one generated with the `momoapi-ruby` command.
+* `disbursement_api_secret`: For sandbox, use the one generated with the `momoapi-ruby` command.
+
+You can create a disbursement client with the following:
+
+```ruby
+require 'momoapi-ruby'
+
+disbursement = Momoapi::Disbursement.new
+```
+
+### Methods
+1. `transfer`: Used to transfer an amount from the owner’s account to a payee account. Status of the transaction can be validated by using the `get_transaction_status` method.
+
+2. `get_transaction_status`: Retrieve transaction information using the `transaction_id` returned by `transfer`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
+
+3. `get_balance`: Get the balance of the account.
+
+### Sample Code
+
+```ruby
+require 'momoapi-ruby'
+
+disbursement = Momoapi::Disbursement.new
+disbursement.transfer(
+    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+```
+An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
+
+## Remittances
+The remittances client can be created with the following paramaters. The `REMITTANCES_USER_ID` and `REMITTANCES_API_SECRET` for production are provided on the MTN OVA dashboard.
+
+Add the following to your configuration block:
+```
+  config.remittance_primary_key = 'Your Remittance Subscription Key'
+  config.remittance_user_id = 'Your Remittance User ID'
+  config.remittance_api_secret = 'Your Remittance API Key'
+```
+
+* `remittance_primary_key`: Primary Key for the `Remittance` product on the developer portal.
+* `remittance_user_id`: For sandbox, use the one generated with the `momoapi-ruby` command.
+* `remittance_api_secret`: For sandbox, use the one generated with the `momoapi-ruby` command.
+
+You can create a remittance client with the following:
+
+```ruby
+require 'momoapi-ruby'
+
+remittance = Momoapi::Remittance.new
+```
+
+### Methods
+1. `transfer`: Used to transfer an amount from the owner’s account to a payee account. Status of the transaction can be validated by using the `get_transaction_status` method.
+
+2. `get_transaction_status`: Retrieve transaction information using the `transaction_id` returned by `transfer`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
+
+3. `get_balance`: Get the balance of the account.
+
+### Sample Code
+
+```ruby
+require 'momoapi-ruby'
+
+remittance = Momoapi::Remittance.new
+remittance.transfer(
+    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+```
+An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
+
 
 ## Contributing
 
