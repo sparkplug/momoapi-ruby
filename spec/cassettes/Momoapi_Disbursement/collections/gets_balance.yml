@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/token
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - b5e0f061fa5a4cbbbd2192530b7cedfb
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Access Denied
+    headers:
+      Content-Length:
+      - '143'
+      Content-Type:
+      - application/json
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Www-Authenticate:
+      - AzureApiManagementKey realm="https://sandbox.momodeveloper.mtn.com/disbursement",name="Ocp-Apim-Subscription-Key",type="header"
+      Date:
+      - Thu, 27 Feb 2020 10:08:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{ "statusCode": 401, "message": "Access denied due to invalid subscription
+        key. Make sure to provide a valid key for an active subscription." }'
+    http_version: null
+  recorded_at: Thu, 27 Feb 2020 10:08:03 GMT
+recorded_with: VCR 5.1.0

@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Mon, 02 Mar 2020 12:07:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAzLTAyVDEzOjA3OjU1LjE0MyIsInNlc3Npb25JZCI6IjgzY2Y3Zjg3LWNlN2EtNDlmYi04ZDU4LTdiMTFmODA0NWE1NSJ9.gT1-u80gziEk8_DaT3y4T14PJdJ2tfPYdK1yJAlIMTA-g3eIfIVmCQ7PIo1SnHhRHcJN-CIL0kRsk9lBxSWN5r2aUWLHrZQoTrnE0HkmSZtAsofzKJOhpHgk4K_L2H9aFnSHISDGqFnosRh6RcNOsactnVw4YPxKvbs9ysZ8Vh5eJPpqQ7KdhDRnILuBzikN1cJe-kOjsv0nKWOp88peDHy_HtXPzrAXJBzP0a5ElodnjnlXLu0J-TQET0l-Sll26YN4T9FdnC-3teJIwwNWSufndy0ynvHbagrG6VB_im27wa4Z7EwXhXmOgJe0PsnEAdzbmEEF87kSQ2rb-FnYdw","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Mon, 02 Mar 2020 12:07:55 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/v1_0/account/balance
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAzLTAyVDEzOjA3OjU1LjE0MyIsInNlc3Npb25JZCI6IjgzY2Y3Zjg3LWNlN2EtNDlmYi04ZDU4LTdiMTFmODA0NWE1NSJ9.gT1-u80gziEk8_DaT3y4T14PJdJ2tfPYdK1yJAlIMTA-g3eIfIVmCQ7PIo1SnHhRHcJN-CIL0kRsk9lBxSWN5r2aUWLHrZQoTrnE0HkmSZtAsofzKJOhpHgk4K_L2H9aFnSHISDGqFnosRh6RcNOsactnVw4YPxKvbs9ysZ8Vh5eJPpqQ7KdhDRnILuBzikN1cJe-kOjsv0nKWOp88peDHy_HtXPzrAXJBzP0a5ElodnjnlXLu0J-TQET0l-Sll26YN4T9FdnC-3teJIwwNWSufndy0ynvHbagrG6VB_im27wa4Z7EwXhXmOgJe0PsnEAdzbmEEF87kSQ2rb-FnYdw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Server Error
+    headers:
+      Content-Length:
+      - '93'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Mon, 02 Mar 2020 12:07:56 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"An internal error occurred while processing.","code":"INTERNAL_PROCESSING_ERROR"}'
+    http_version: null
+  recorded_at: Mon, 02 Mar 2020 12:07:56 GMT
+recorded_with: VCR 5.1.0

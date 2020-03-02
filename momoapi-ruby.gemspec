@@ -9,17 +9,9 @@ Gem::Specification.new do |spec|
   spec.version       = Momoapi::VERSION
   spec.authors       = ['Lydia Sanyu Naggayi']
   spec.email         = ['lydiansanyu@gmail.com']
-
-  spec.summary       = 'MTN MoMo API gem'
-  # spec.description   = %q{TODO: Write a longer description}
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  # spec.license       = "MIT"
-
-  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
-  # spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = ""
-  # spec.metadata["changelog_uri"] = ""
+  spec.summary       = 'MTN MoMo gem'
+  spec.description   = 'MTN MoMo API Client for Ruby'
+  spec.license       = 'MIT'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the
@@ -33,8 +25,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'coveralls', '~> 0.8.15'
   spec.add_development_dependency 'faraday'
   spec.add_development_dependency 'pry', '~> 0.12'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'vcr', '~> 5.1'
+  spec.add_development_dependency 'webmock', '~> 2.1'
 end
