@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# This is an executable file allowing a user to use the command line interface
+# to pass in a callback host url and a subscription key
+# and get back a generated user id and API key
+
 require 'faraday'
 require 'json'
 require 'securerandom'

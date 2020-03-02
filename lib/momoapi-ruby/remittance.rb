@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Implementation of the MTN API remittances client
+
 require 'momoapi-ruby/config'
 require 'momoapi-ruby/client'
 
@@ -20,8 +22,13 @@ module Momoapi
       super(path, Momoapi.config.remittance_primary_key)
     end
 
+    # The transfer operation is used to transfer an amount from the owner’s
+    # account to a payee account.
+    # The status of the transaction can be validated
+    # by using `get_transation_status`
     def transfer(phone_number, amount, external_id,
-                 payee_note = '', payer_message = '', currency = 'EUR')
+                 payee_note = '', payer_message = '',
+                 currency = 'EUR', **options)
       uuid = SecureRandom.uuid
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',
@@ -29,6 +36,9 @@ module Momoapi
         "X-Reference-Id": uuid,
         "Ocp-Apim-Subscription-Key": Momoapi.config.disbursement_primary_key
       }
+      if options[:callback_url]
+        headers['X-Callback-Url'] = options[:callback_url]
+      end
       body = {
         "payer": {
           "partyIdType": 'MSISDN',
@@ -43,6 +53,11 @@ module Momoapi
       path = '/remittance/v1_0/transfer'
       send_request('post', path, headers, body)
       { transaction_reference: uuid }
+    end
+
+    def is_user_active(phone_number)
+      path = "/remittance/v1_0/accountholder/msisdn/#{phone_number}/active"
+      super(path, Momoapi.config.remittance_primary_key)
     end
   end
 end
