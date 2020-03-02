@@ -5,7 +5,7 @@ Naming/FileName:
 Metrics/MethodLength: 
   Max: 25
 Metrics/BlockLength:
-  Max: 30
+  Max: 35
 Metrics/ParameterLists:
   Max: 8
 Lint/DuplicateMethods:

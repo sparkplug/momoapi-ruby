@@ -1,7 +1,8 @@
 # MTN MoMo API Ruby Gem
 
 [![Build Status](https://travis-ci.com/sparkplug/momoapi-ruby.svg?branch=master)](https://travis-ci.com/sparkplug/momoapi-ruby)
-
+[![Coverage Status](https://coveralls.io/repos/github/sparkplug/momoapi-ruby/badge.svg?branch=master)](https://coveralls.io/github/sparkplug/momoapi-ruby?branch=master)
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/momo-api-developers/)
 
 ## Usage
 

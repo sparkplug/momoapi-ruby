@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Momoapi::Disbursement do
+RSpec.describe Momoapi::Remittance do
   before(:all) do
     Momoapi.configure do |config|
       config.base_url = 'https://sandbox.momodeveloper.mtn.com'
