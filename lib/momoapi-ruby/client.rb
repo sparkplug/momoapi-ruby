@@ -56,31 +56,25 @@ module Momoapi
       end
     end
 
-    def get_balance(path, subscription_key)
+    def prepare_get_request(path, subscription_key)
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',
         "Content-Type": 'application/json',
         "Ocp-Apim-Subscription-Key": subscription_key
       }
       send_request('get', path, headers)
+    end
+
+    def get_balance(path, subscription_key)
+      prepare_get_request(path, subscription_key)
     end
 
     def get_transaction_status(path, subscription_key)
-      headers = {
-        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
-        "Content-Type": 'application/json',
-        "Ocp-Apim-Subscription-Key": subscription_key
-      }
-      send_request('get', path, headers)
+      prepare_get_request(path, subscription_key)
     end
 
     def is_user_active(path, subscription_key)
-      headers = {
-        "X-Target-Environment": Momoapi.config.environment || 'sandbox',
-        "Content-Type": 'application/json',
-        "Ocp-Apim-Subscription-Key": subscription_key
-      }
-      send_request('get', path, headers)
+      prepare_get_request(path, subscription_key)
     end
   end
 end
