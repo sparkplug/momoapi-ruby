@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Configurations are set up in this file
+# for a user's MTN MoMo API user credentials
+
 module Momoapi
   class Config
     attr_accessor :environment, :base_url,

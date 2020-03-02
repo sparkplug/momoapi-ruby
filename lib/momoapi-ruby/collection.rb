@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Implementation of the MTN API collections client
+
 require 'securerandom'
 
 require 'momoapi-ruby/config'
@@ -22,6 +24,13 @@ module Momoapi
       super(path, Momoapi.config.collection_primary_key)
     end
 
+    # This method is used to request a payment from a consumer (Payer).
+    # The payer will be asked to authorize the payment. The transaction will
+    # be executed once the payer has authorized the payment.
+    # The requesttopay will be in status PENDING until the transaction
+    # is authorized or declined by the payer or it is timed out by the system.
+    # The status of the transaction can be validated
+    # by using `get_transation_status`
     def request_to_pay(phone_number, amount, external_id,
                        payee_note = '', payer_message = '',
                        currency = 'EUR', **options)

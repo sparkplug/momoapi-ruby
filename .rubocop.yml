@@ -14,3 +14,5 @@ Naming/AccessorMethodName:
   Enabled: false
 Naming/PredicateName:
   Enabled: false
+Style/AsciiComments:
+  Enabled: false

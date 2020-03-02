@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Implementation of the MTN API disbursements client
+
 require 'momoapi-ruby/config'
 require 'momoapi-ruby/client'
 
@@ -20,6 +22,10 @@ module Momoapi
       super(path, Momoapi.config.disbursement_primary_key)
     end
 
+    # The transfer operation is used to transfer an amount from the owner’s
+    # account to a payee account.
+    # The status of the transaction can be validated
+    # by using `get_transation_status`
     def transfer(phone_number, amount, external_id,
                  payee_note = '', payer_message = '',
                  currency = 'EUR', **options)
