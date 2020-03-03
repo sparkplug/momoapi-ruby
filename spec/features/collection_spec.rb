@@ -14,7 +14,7 @@ RSpec.describe Momoapi::Collection do
   end
 
   describe 'collections', vcr: { record: :new_episodes } do
-    it 'checks is user is active' do
+    it 'checks if user is active' do
       response = Momoapi::Collection.new.is_user_active('0243656543')
       expect(response[:code]).to eq(200)
     end

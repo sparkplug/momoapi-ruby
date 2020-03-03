@@ -5,7 +5,8 @@
 
 module Momoapi
   class Config
-    attr_accessor :environment, :base_url,
+    attr_writer   :base_url
+    attr_accessor :environment,
                   :callback_host, :collection_primary_key,
                   :collection_user_id, :collection_api_secret,
                   :disbursement_primary_key, :disbursement_user_id,
@@ -25,6 +26,10 @@ module Momoapi
       @remittance_primary_key = nil
       @remittance_user_id = nil
       @remittance_api_secret = nil
+    end
+
+    def base_url
+      @base_url || 'https://ericssonbasicapi2.azure-api.net'
     end
   end
 end

@@ -33,7 +33,7 @@ module Momoapi
     # by using `get_transation_status`
     def request_to_pay(phone_number, amount, external_id,
                        payee_note = '', payer_message = '',
-                       currency = 'EUR', **options)
+                       currency = 'EUR', callback_url = '')
       uuid = SecureRandom.uuid
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',
@@ -41,9 +41,7 @@ module Momoapi
         "X-Reference-Id": uuid,
         "Ocp-Apim-Subscription-Key": Momoapi.config.collection_primary_key
       }
-      if options[:callback_url]
-        headers['X-Callback-Url'] = options[:callback_url]
-      end
+      headers['X-Callback-Url'] = callback_url unless callback_url.empty?
       body = {
         "payer": {
           "partyIdType": 'MSISDN',

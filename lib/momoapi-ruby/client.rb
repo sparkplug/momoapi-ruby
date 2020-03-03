@@ -11,7 +11,7 @@ require 'momoapi-ruby/errors'
 
 module Momoapi
   class Client
-    def send_request(method, path, headers, *_body)
+    def send_request(method, path, headers, body = {})
       auth_token = get_auth_token['access_token']
       conn = Faraday.new(url: Momoapi.config.base_url)
       conn.headers = headers
@@ -21,7 +21,7 @@ module Momoapi
       when 'get'
         response = conn.get(path)
       when 'post'
-        response = conn.post(path)
+        response = conn.post(path, body.to_json)
       end
       interpret_response(response)
     end
