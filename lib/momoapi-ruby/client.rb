@@ -11,7 +11,7 @@ require 'momoapi-ruby/errors'
 
 module Momoapi
   class Client
-    def send_request(method, path, headers, *_body)
+    def send_request(method, path, headers, body = {})
       auth_token = get_auth_token['access_token']
       conn = Faraday.new(url: Momoapi.config.base_url)
       conn.headers = headers
@@ -21,7 +21,7 @@ module Momoapi
       when 'get'
         response = conn.get(path)
       when 'post'
-        response = conn.post(path)
+        response = conn.post(path, body.to_json)
       end
       interpret_response(response)
     end
@@ -48,17 +48,31 @@ module Momoapi
       headers = {
         "Ocp-Apim-Subscription-Key": subscription_key
       }
-      username = Momoapi.config.collection_user_id
-      password = Momoapi.config.collection_api_secret
       url = Momoapi.config.base_url
       conn = Faraday.new(url: url)
       conn.headers = headers
-      conn.basic_auth(username, password)
+      product = path.split('/')[0]
+      get_credentials(product)
+      conn.basic_auth(@username, @password)
       response = conn.post(path)
       begin
         JSON.parse(response.body)
       rescue JSON::ParserError
         response.body.to_s
+      end
+    end
+
+    def get_credentials(product)
+      case product
+      when 'collection'
+        @username = Momoapi.config.collection_user_id
+        @password = Momoapi.config.collection_api_secret
+      when 'disbursement'
+        @username = Momoapi.config.disbursement_user_id
+        @password = Momoapi.config.disbursement_api_secret
+      when 'remittance'
+        @username = Momoapi.config.remittance_user_id
+        @password = Momoapi.config.remittance_api_secret
       end
     end
 
