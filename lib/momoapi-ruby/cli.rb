@@ -32,7 +32,7 @@ module Momoapi
       end
 
       unless response.status == 201
-        raise Error::APIError.new(response.body, response.status)
+        raise Momoapi::Error.new(response.body, response.status)
       end
 
       generate_api_key
@@ -46,7 +46,7 @@ module Momoapi
       end
 
       unless response.status == 201
-        raise Error::APIError.new(response.body, response.status)
+        raise Momoapi::Error.new(response.body, response.status)
       end
 
       key = JSON.parse(response.body)

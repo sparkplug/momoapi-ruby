@@ -83,7 +83,7 @@ require 'momoapi-ruby'
 
 collection = Momoapi::Collection.new
 collection.request_to_pay(
-    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+    phone_number="256772123456", amount=600, external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
 ```
 An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
 
@@ -123,7 +123,7 @@ require 'momoapi-ruby'
 
 disbursement = Momoapi::Disbursement.new
 disbursement.transfer(
-    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+    phone_number="256772123456", amount=600, external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
 ```
 An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
 
@@ -163,7 +163,7 @@ require 'momoapi-ruby'
 
 remittance = Momoapi::Remittance.new
 remittance.transfer(
-    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+    phone_number="256772123456", amount=600, external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
 ```
 An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
 

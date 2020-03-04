@@ -16,23 +16,23 @@ RSpec.describe Momoapi::Remittance do
   describe 'remittances', vcr: { record: :new_episodes } do
     it 'gets balance' do
       expect { Momoapi::Remittance.new.get_balance }
-        .to raise_error(Error::APIError)
+        .to raise_error(Momoapi::Error)
     end
 
     it 'gets transaction status' do
       ref = '888a79ff-0535-4a9f-8a66-457f7903bd8ab'
       expect { Momoapi::Remittance.new.get_transaction_status(ref) }
-        .to raise_error(Error::APIError)
+        .to raise_error(Momoapi::Error)
     end
 
     it 'makes transfer' do
       expect do
         Momoapi::Remittance.new.transfer(
           '0775671360',
-          '5.0', '6353636',
+          5.0, '6353636',
           'testing', 'testing', 'EUR'
         )
-      end .to raise_error(Error::APIError)
+      end .to raise_error(Momoapi::Error)
     end
   end
 end
