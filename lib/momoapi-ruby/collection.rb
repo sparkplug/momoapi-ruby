@@ -6,6 +6,7 @@ require 'securerandom'
 
 require 'momoapi-ruby/config'
 require 'momoapi-ruby/client'
+require 'momoapi-ruby/validate'
 
 module Momoapi
   class Collection < Client
@@ -34,6 +35,7 @@ module Momoapi
     def request_to_pay(phone_number, amount, external_id,
                        payee_note = '', payer_message = '',
                        currency = 'EUR', callback_url = '')
+      Momoapi::Validate.new.validate(phone_number, amount, currency)
       uuid = SecureRandom.uuid
       headers = {
         "X-Target-Environment": Momoapi.config.environment || 'sandbox',

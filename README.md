@@ -70,22 +70,12 @@ collection = Momoapi::Collection.new
 ```
 
 ### Methods
-1. `request_to_pay`: This operation is used to request a payment from a consumer (Payer). The payer will be asked to authorize the payment. The transaction is executed once the payer has authorized the payment. The transaction will be in status PENDING until it is authorized or declined by the payer or it is timed out by the system. Status of the transaction can be validated by using `get_transaction_status`.
+1. `request_to_pay`: This operation is used to request a payment from a consumer (Payer). The payer will be asked to authorize the payment. The transaction is executed once the payer has authorized the payment. The transaction will be in status PENDING until it is authorized or declined by the payer or it is timed out by the system. The status of the transaction can be validated by using `get_transaction_status`. 
 
-2. `get_transaction_status`: Retrieve transaction information using the `transaction_id` returned by `request_to_pay`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
+2. `get_transaction_status`: Retrieve transaction information using the `transaction_reference` returned by `request_to_pay`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
 
 3. `get_balance`: Get the balance of the account.
 
-### Sample Code
-
-```ruby
-require 'momoapi-ruby'
-
-collection = Momoapi::Collection.new
-collection.request_to_pay(
-    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
-```
-An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
 
 ## Disbursements
 The disbursements client can be created with the following paramaters. The `DISBURSEMENT_USER_ID` and `DISBURSEMENT_API_SECRET` for production are provided on the MTN OVA dashboard.
@@ -110,22 +100,12 @@ disbursement = Momoapi::Disbursement.new
 ```
 
 ### Methods
-1. `transfer`: Used to transfer an amount from the owner’s account to a payee account. Status of the transaction can be validated by using the `get_transaction_status` method.
+1. `transfer`: Used to transfer an amount from the owner’s account to a payee account. The status of the transaction can be validated by using the `get_transaction_status` method.
 
-2. `get_transaction_status`: Retrieve transaction information using the `transaction_id` returned by `transfer`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
+2. `get_transaction_status`: Retrieve transaction information using the `transaction_reference` returned by `transfer`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
 
 3. `get_balance`: Get the balance of the account.
 
-### Sample Code
-
-```ruby
-require 'momoapi-ruby'
-
-disbursement = Momoapi::Disbursement.new
-disbursement.transfer(
-    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
-```
-An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
 
 ## Remittances
 The remittances client can be created with the following paramaters. The `REMITTANCES_USER_ID` and `REMITTANCES_API_SECRET` for production are provided on the MTN OVA dashboard.
@@ -150,22 +130,39 @@ remittance = Momoapi::Remittance.new
 ```
 
 ### Methods
-1. `transfer`: Used to transfer an amount from the owner’s account to a payee account. Status of the transaction can be validated by using the `get_transaction_status` method.
+1. `transfer`: Used to transfer an amount from the owner’s account to a payee account. The status of the transaction can be validated by using the `get_transaction_status` method. 
 
-2. `get_transaction_status`: Retrieve transaction information using the `transaction_id` returned by `transfer`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
+2. `get_transaction_status`: Retrieve transaction information using the `transaction_reference` returned by `transfer`. You can invoke it at intervals until the transaction fails or succeeds. If the transaction has failed, it will throw an appropriate error. 
 
 3. `get_balance`: Get the balance of the account.
 
-### Sample Code
+
+## Sample Code
 
 ```ruby
 require 'momoapi-ruby'
 
-remittance = Momoapi::Remittance.new
-remittance.transfer(
-    mobile="256772123456", amount="600", external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+collection = Momoapi::Collection.new 
+
+collection.is_user_active('256772123456')
+
+collection.get_balance
+
+transaction = collection.request_to_pay(
+    phone_number="256772123456", amount=600, external_id="123456789", payee_note="dd", payer_message="dd", currency="EUR")
+
+transaction_ref = transaction[:transaction_reference]
+
+collection.get_transaction_status(transaction_ref)
+
 ```
-An extra argument, `callback_url`, can be passed to this method, denoting the URL to the server where the callback should be sent.
+
+### Points to note:
+All methods for Disbursements and Remittances follow the same format as the examples shown above for Collections 
+
+The 'transfer' method for Disbursements and Remittances follows the same format as 'request_to_pay' above.
+
+An extra argument, `callback_url`, can be passed to the 'request_to_pay' and 'transfer' methods, denoting the URL to the server where the callback should be sent.
 
 
 ## Contributing
