@@ -21,9 +21,10 @@ module Momoapi
       create_sandbox_user
     end
 
+    # Create an API user in the sandbox target environment
     def create_sandbox_user
       body = { "providerCallbackHost": @host }
-      @url = 'https://sandbox.momodeveloper.mtn.com/v1_0/apiuser'
+      @url = 'https://ericssonbasicapi2.azure-api.net/v1_0/apiuser'
       response = Faraday.post(@url) do |req|
         req.headers['Content-Type'] = 'application/json'
         req.headers['X-Reference-Id'] = @uuid
@@ -38,8 +39,9 @@ module Momoapi
       generate_api_key
     end
 
+    # Generate an API key in the sandbox target environment
     def generate_api_key
-      @url = 'https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/' +
+      @url = 'https://ericssonbasicapi2.azure-api.net/v1_0/apiuser/' +
              @uuid + '/apikey'
       response = Faraday.post(@url) do |req|
         req.headers['Ocp-Apim-Subscription-Key'] = @key

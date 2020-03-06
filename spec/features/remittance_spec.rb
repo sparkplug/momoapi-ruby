@@ -14,6 +14,11 @@ RSpec.describe Momoapi::Remittance do
   end
 
   describe 'remittances', vcr: { record: :new_episodes } do
+    it 'checks if user is active' do
+      response = Momoapi::Remittance.new.is_user_active('0243656543')
+      expect(response).to be_a_kind_of(Hash)
+    end
+
     it 'gets balance' do
       expect { Momoapi::Remittance.new.get_balance }
         .to raise_error(Momoapi::Error)
