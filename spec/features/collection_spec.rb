@@ -16,28 +16,28 @@ RSpec.describe Momoapi::Collection do
   describe 'collections', vcr: { record: :new_episodes } do
     it 'checks if user is active' do
       response = Momoapi::Collection.new.is_user_active('0243656543')
-      expect(response[:code]).to eq(200)
+      expect(response).to be_a_kind_of(Hash)
     end
 
     it 'gets balance' do
       expect { Momoapi::Collection.new.get_balance }
-        .to raise_error(Error::APIError)
+        .to raise_error(Momoapi::Error)
     end
 
     it 'gets transaction status' do
-      ref = '888a79ff-0535-4a9f-8a66-457f7903bd8a'
-      response = Momoapi::Collection.new.get_transaction_status(ref)
-      expect(response[:code]).to eq(200)
+      ref = '3700b523-c5d9-446e-8c01-a6261903a9ba'
+      expect { Momoapi::Collection.new.get_transaction_status(ref) }
+        .to raise_error(Momoapi::Error)
     end
 
     it 'makes request to pay' do
       expect do
         Momoapi::Collection.new.request_to_pay(
           '0775671360',
-          '5.0', '6353636',
+          5.0, '6353636',
           'testing', 'testing', 'EUR'
         )
-      end .to raise_error(Error::APIError)
+      end .to raise_error(Momoapi::Error)
     end
   end
 end

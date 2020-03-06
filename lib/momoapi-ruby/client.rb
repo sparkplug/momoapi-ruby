@@ -12,16 +12,20 @@ require 'momoapi-ruby/errors'
 module Momoapi
   class Client
     def send_request(method, path, headers, body = {})
-      auth_token = get_auth_token['access_token']
-      conn = Faraday.new(url: Momoapi.config.base_url)
-      conn.headers = headers
-      conn.authorization(:Bearer, auth_token)
+      begin
+        auth_token = get_auth_token['access_token']
+        conn = Faraday.new(url: Momoapi.config.base_url)
+        conn.headers = headers
+        conn.authorization(:Bearer, auth_token)
 
-      case method
-      when 'get'
-        response = conn.get(path)
-      when 'post'
-        response = conn.post(path, body.to_json)
+        case method
+        when 'get'
+          response = conn.get(path)
+        when 'post'
+          response = conn.post(path, body.to_json)
+        end
+      rescue ArgumentError
+        raise "Missing configuration key(s) for #{@product.capitalize}s"
       end
       interpret_response(response)
     end
@@ -35,11 +39,11 @@ module Momoapi
       unless resp.status >= 200 && resp.status < 300
         handle_error(response[:body], response[:code])
       end
-      response
+      body
     end
 
     def handle_error(response_body, response_code)
-      raise Error::APIError.new(response_body, response_code)
+      raise Momoapi::Error.new(response_body, response_code)
     end
 
     # Create an  access token which can then be used to
@@ -51,8 +55,8 @@ module Momoapi
       url = Momoapi.config.base_url
       conn = Faraday.new(url: url)
       conn.headers = headers
-      product = path.split('/')[0]
-      get_credentials(product)
+      @product = path.split('/')[0]
+      get_credentials(@product)
       conn.basic_auth(@username, @password)
       response = conn.post(path)
       begin

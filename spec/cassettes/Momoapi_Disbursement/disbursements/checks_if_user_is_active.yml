@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - 0c74e0a1cf344d45a3d02b1da52c12f5
+      Authorization:
+      - Basic ZWRlNjlkYTYtZWVjNy00YjQ4LTg2YzQtZmFmNjVjZDA1NzI2OjA2NmVlYzU3MTA0MDRkNzhhMGIwOTIzMDU4MDE0Y2U3
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 06 Mar 2020 09:41:21 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6ImVkZTY5ZGE2LWVlYzctNGI0OC04NmM0LWZhZjY1Y2QwNTcyNiIsImV4cGlyZXMiOiIyMDIwLTAzLTA2VDEwOjQxOjIxLjEzNyIsInNlc3Npb25JZCI6ImUzZjVmYTdkLTg0NjEtNGE5OS05ZmMxLWE3N2MwZmQzMTBkNiJ9.SXQ-sALxAlCWonidM15_TslF6VNAD5tgSGP45wuMGXnuZYRRA8bQFidT9RzNhooEbYGwQOn_xvVuV1tJmoYbBWQzV2HOOc36nW7bKPQSrdP1qAQopt8r3CBsOwW3y6jufoyoLuskT-tzb6ft4Ls4BDtHCKox2_Czv-h2qCeptxa7CXF7uq8VZYpTbPN1sLjH3BRgTR5bh0PgR-ByCxPhizvyDhXdsAtfWmGnFig8_VQjnW4MJbVSdvMC_X9a4NkBON2loteVlE54tL-RttCvr0k5oLdObRiRWMVfgjKKSVQeLZu-mhYqvqZ9eZ2-ohsx70DBhEZWeiu5GGI0-jWTTw","token_type":"access_token","expires_in":3600}'
+    http_version: null
+  recorded_at: Fri, 06 Mar 2020 09:41:21 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/disbursement/v1_0/accountholder/msisdn/0243656543/active
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - 0c74e0a1cf344d45a3d02b1da52c12f5
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6ImVkZTY5ZGE2LWVlYzctNGI0OC04NmM0LWZhZjY1Y2QwNTcyNiIsImV4cGlyZXMiOiIyMDIwLTAzLTA2VDEwOjQxOjIxLjEzNyIsInNlc3Npb25JZCI6ImUzZjVmYTdkLTg0NjEtNGE5OS05ZmMxLWE3N2MwZmQzMTBkNiJ9.SXQ-sALxAlCWonidM15_TslF6VNAD5tgSGP45wuMGXnuZYRRA8bQFidT9RzNhooEbYGwQOn_xvVuV1tJmoYbBWQzV2HOOc36nW7bKPQSrdP1qAQopt8r3CBsOwW3y6jufoyoLuskT-tzb6ft4Ls4BDtHCKox2_Czv-h2qCeptxa7CXF7uq8VZYpTbPN1sLjH3BRgTR5bh0PgR-ByCxPhizvyDhXdsAtfWmGnFig8_VQjnW4MJbVSdvMC_X9a4NkBON2loteVlE54tL-RttCvr0k5oLdObRiRWMVfgjKKSVQeLZu-mhYqvqZ9eZ2-ohsx70DBhEZWeiu5GGI0-jWTTw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json;charset=utf-8
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 06 Mar 2020 09:41:21 GMT
+    body:
+      encoding: UTF-8
+      string: '{"result":true}'
+    http_version: null
+  recorded_at: Fri, 06 Mar 2020 09:41:22 GMT
+recorded_with: VCR 5.1.0

@@ -81,4 +81,41 @@ http_interactions:
         for product a","payeeNote":"payer note","status":"SUCCESSFUL"}'
     http_version: null
   recorded_at: Wed, 26 Feb 2020 14:48:39 GMT
+- request:
+    method: get
+    uri: https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay/3700b523-c5d9-446e-8c01-a6261903a9ba
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      Ocp-Apim-Subscription-Key:
+      - b5e0f061fa5a4cbbbd2192530b7cedfb
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIwLTAyLTI2VDE1OjQ4OjM4LjI0MiIsInNlc3Npb25JZCI6IjFjNjJjMTg5LTIyNzEtNDAzYy1hNTIzLTMyOWUxMzNkYmRhNCJ9.OaehnsCtAGPMrI1eUDZKGNUGV0i7mAG0BXT3hqumURGtVZO-JoxUfQoFCx8Zirs4khJvbjeORHCxAyV69XpUk3FVX30vfTNOL_uZMTQrzI6uPpUa5qyDqUY0deX0_SjmQ7-8AyIIZRFgS9Qa8iKwLIO7JtYfsH38sDTUaXx5tVjnir4A4VzwywcwEHqBzSCmTR1No4wRjdWF4gPnvar3WdzfwqyjhANxx6BB6D2zSGrGJTe_OM2Dv9v6YLyXycb6X5S2ECpQzfsVfpDIB1E_A87I4lG_cC0bqG52QBtwXBsj6qSF2UB7RAQhsNb-9NOgeiaS8dmv5HEqXuDpgCRXHw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Length:
+      - '0'
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 06 Mar 2020 09:43:22 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Fri, 06 Mar 2020 09:43:22 GMT
 recorded_with: VCR 5.1.0
