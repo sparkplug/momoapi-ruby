@@ -1,5 +1,6 @@
 # MTN MoMo API Ruby Gem
 
+[![Gem Version](https://badge.fury.io/rb/momoapi-ruby.svg)](https://badge.fury.io/rb/momoapi-ruby)
 [![Build Status](https://travis-ci.com/sparkplug/momoapi-ruby.svg?branch=master)](https://travis-ci.com/sparkplug/momoapi-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/sparkplug/momoapi-ruby/badge.svg?branch=master)](https://coveralls.io/github/sparkplug/momoapi-ruby?branch=master)
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/momo-api-developers/)
@@ -16,7 +17,7 @@ gem 'momoapi-ruby'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -164,6 +165,8 @@ The 'transfer' method for Disbursements and Remittances follows the same format 
 
 An extra argument, `callback_url`, can be passed to the 'request_to_pay' and 'transfer' methods, denoting the URL to the server where the callback should be sent.
 
+## Additional documentation
+For additional documentation, please refer to this link: https://www.rubydoc.info/gems/momoapi-ruby/1.0.1
 
 ## Contributing
 
