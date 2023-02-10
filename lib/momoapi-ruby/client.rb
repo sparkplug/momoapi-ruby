@@ -24,7 +24,7 @@ module Momoapi
         when 'post'
           response = conn.post(path, body.to_json)
         end
-      rescue ArgumentError
+      rescue ArgumentError => e
         raise "Missing configuration key(s) for #{@product.capitalize}s"
       end
       interpret_response(response)

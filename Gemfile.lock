@@ -7,8 +7,8 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     coderay (1.1.2)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
@@ -16,21 +16,22 @@ GEM
       term-ansicolor (~> 1.3)
       thor (>= 0.19.4, < 2.0)
       tins (~> 1.6)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
+    crack (0.4.5)
+      rexml
     diff-lcs (1.3)
     docile (1.3.2)
     faraday (1.0.0)
       multipart-post (>= 1.2, < 3)
-    hashdiff (1.0.0)
+    hashdiff (1.0.1)
     json (2.3.0)
     method_source (0.9.2)
     multipart-post (2.1.1)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    public_suffix (4.0.3)
+    public_suffix (5.0.1)
     rake (13.0.1)
+    rexml (3.2.5)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -44,7 +45,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
-    safe_yaml (1.0.5)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -57,10 +57,10 @@ GEM
     tins (1.24.1)
       sync
     vcr (5.1.0)
-    webmock (2.3.2)
-      addressable (>= 2.3.6)
+    webmock (3.18.1)
+      addressable (>= 2.8.0)
       crack (>= 0.3.2)
-      hashdiff
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   ruby
@@ -73,7 +73,7 @@ DEPENDENCIES
   rake (~> 13.0)
   rspec (~> 3.0)
   vcr (~> 5.1)
-  webmock (~> 2.1)
+  webmock (~> 3.18)
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
