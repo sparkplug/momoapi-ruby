@@ -14,7 +14,7 @@ module Momoapi
     def send_request(method, path, headers, body = {})
       begin
         auth_token = get_auth_token['access_token']
-        conn = Faraday.new(url: Momoapi.config.base_url)
+        conn = faraday_with_block(url: Momoapi.config.base_url)
         conn.headers = headers
         conn.authorization(:Bearer, auth_token)
 
@@ -53,7 +53,7 @@ module Momoapi
         "Ocp-Apim-Subscription-Key": subscription_key
       }
       url = Momoapi.config.base_url
-      conn = Faraday.new(url: url)
+      conn = faraday_with_block(url: url)
       conn.headers = headers
       @product = path.split('/')[0]
       get_credentials(@product)
@@ -102,6 +102,18 @@ module Momoapi
     # check if an account holder is registered and active in the system
     def is_user_active(path, subscription_key)
       prepare_get_request(path, subscription_key)
+    end
+
+    private
+
+    def faraday_with_block(options)
+      Faraday.new(options)
+      block = Momoapi.config.faraday_block
+      if block
+        Faraday.new(options, &block)
+      else
+        Faraday.new(options)
+      end
     end
   end
 end

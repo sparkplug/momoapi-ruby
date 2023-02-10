@@ -10,6 +10,9 @@ RSpec.describe Momoapi::Remittance do
       config.remittance_primary_key = 'd314b91c889340b682a9a3144a9ffd1b'
       config.remittance_user_id = 'cf028de4-7341-41c0-b4ff-3fa190b77236'
       config.remittance_api_secret = 'dcacc115e6fd4669b1db622d4b949947'
+      config.faraday_block = Proc.new do |f|
+        f.use Faraday::Response::Logger
+      end
     end
   end
 

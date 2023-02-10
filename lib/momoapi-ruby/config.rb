@@ -11,7 +11,7 @@ module Momoapi
                   :collection_user_id, :collection_api_secret,
                   :disbursement_primary_key, :disbursement_user_id,
                   :disbursement_api_secret, :remittance_primary_key,
-                  :remittance_user_id, :remittance_api_secret
+                  :remittance_user_id, :remittance_api_secret, :faraday_block
 
     def initialize
       @environment = nil
@@ -26,6 +26,7 @@ module Momoapi
       @remittance_primary_key = nil
       @remittance_user_id = nil
       @remittance_api_secret = nil
+      @faraday_block = nil # pass Proxy
     end
 
     def base_url
