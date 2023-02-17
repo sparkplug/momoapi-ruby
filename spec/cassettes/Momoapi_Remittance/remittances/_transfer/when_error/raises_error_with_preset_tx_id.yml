@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Basic Y2YwMjhkZTQtNzM0MS00MWMwLWI0ZmYtM2ZhMTkwYjc3MjM2OmRjYWNjMTE1ZTZmZDQ2NjliMWRiNjIyZDRiOTQ5OTQ3
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Xss-Protection:
+      - 1; mode=block
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 10 Feb 2023 13:47:33 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6ImNmMDI4ZGU0LTczNDEtNDFjMC1iNGZmLTNmYTE5MGI3NzIzNiIsImV4cGlyZXMiOiIyMDIzLTAyLTEwVDE0OjQ3OjMzLjY1NyIsInNlc3Npb25JZCI6IjY2YWI3NjdlLTE4NTctNDE2Yi1hNjZlLThlMjJhMjczMzAxMiJ9.k3If07TfPRWa8lTMR-RN4VHahdVzkRKsmgnAqno3OnILX0fbviMFyiG9Bg7ExUyyoMiH-iyQlx500eGsY0satJPto4tBIE1AdIzii83-USJjgjBBYPmoPjAgZwv7FnU7oJ_ot4irf854ru8SwKRbjBYZzSzawksyLzziwm9RKtglNvVeEyY4W-W7ERDATFffuz6VVabFLvC86sLJKdzKX-0pnwlpJ3RMrNpBDcrNBslikAQQ0HWAPZ7Hs0CSqt55avQh53vX2rT6BVzZLZJsr2FKTFe754ma1Nhb3rphvgvovmw9_jH3KV2hG5rQUY4m-bNXPskX3GMprQrTwnn4RA","token_type":"access_token","expires_in":3600}'
+    http_version:
+  recorded_at: Fri, 10 Feb 2023 13:47:33 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/remittance/v1_0/transfer
+    body:
+      encoding: UTF-8
+      string: '{"payee":{"partyIdType":"MSISDN","partyId":"0775671360"},"payeeNote":"testing","payerMessage":"testing","externalId":"6353636","currency":"EUR","amount":"5.0"}'
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      X-Reference-Id:
+      - ef7e29c9-ddd2-420b-85a5-5373ca1a48dd
+      Ocp-Apim-Subscription-Key:
+      - d314b91c889340b682a9a3144a9ffd1b
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6ImNmMDI4ZGU0LTczNDEtNDFjMC1iNGZmLTNmYTE5MGI3NzIzNiIsImV4cGlyZXMiOiIyMDIzLTAyLTEwVDE0OjQ3OjMzLjY1NyIsInNlc3Npb25JZCI6IjY2YWI3NjdlLTE4NTctNDE2Yi1hNjZlLThlMjJhMjczMzAxMiJ9.k3If07TfPRWa8lTMR-RN4VHahdVzkRKsmgnAqno3OnILX0fbviMFyiG9Bg7ExUyyoMiH-iyQlx500eGsY0satJPto4tBIE1AdIzii83-USJjgjBBYPmoPjAgZwv7FnU7oJ_ot4irf854ru8SwKRbjBYZzSzawksyLzziwm9RKtglNvVeEyY4W-W7ERDATFffuz6VVabFLvC86sLJKdzKX-0pnwlpJ3RMrNpBDcrNBslikAQQ0HWAPZ7Hs0CSqt55avQh53vX2rT6BVzZLZJsr2FKTFe754ma1Nhb3rphvgvovmw9_jH3KV2hG5rQUY4m-bNXPskX3GMprQrTwnn4RA
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Content-Length:
+      - '99'
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Xss-Protection:
+      - 1; mode=block
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 10 Feb 2023 13:47:34 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"Duplicated reference id. Creation of resource failed.","code":"RESOURCE_ALREADY_EXIST"}'
+    http_version:
+  recorded_at: Fri, 10 Feb 2023 13:47:34 GMT
+recorded_with: VCR 5.1.0
