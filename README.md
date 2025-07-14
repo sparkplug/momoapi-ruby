@@ -1,5 +1,18 @@
 # MTN MoMo API Ruby Gem
 
+**🛑 This repository is no longer actively maintained.**
+
+As of July 14, 2025, this project is no longer under active development. This means:
+* No new features will be added.
+* Bugs will not be fixed.
+* Pull requests will not be reviewed or merged.
+* Issues will not be addressed.
+
+We appreciate your interest and contributions.
+**Thank you.**
+
+<hr>
+
 [![Gem Version](https://badge.fury.io/rb/momoapi-ruby.svg)](https://badge.fury.io/rb/momoapi-ruby)
 [![Build Status](https://travis-ci.com/sparkplug/momoapi-ruby.svg?branch=master)](https://travis-ci.com/sparkplug/momoapi-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/sparkplug/momoapi-ruby/badge.svg?branch=master)](https://coveralls.io/github/sparkplug/momoapi-ruby?branch=master)
