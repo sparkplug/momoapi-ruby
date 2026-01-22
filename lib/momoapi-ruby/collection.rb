@@ -58,6 +58,14 @@ module Momoapi
       path = '/collection/v1_0/requesttopay'
       send_request('post', path, headers, body)
       { transaction_reference: uuid }
+    rescue Exception => error
+      if uuid
+        class << error
+          attr_accessor :transaction_reference
+        end
+        error.transaction_reference = uuid
+      end
+      raise error
     end
 
     def is_user_active(phone_number)

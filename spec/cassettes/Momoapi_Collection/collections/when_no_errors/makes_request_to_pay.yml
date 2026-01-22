@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/collection/token/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - b5e0f061fa5a4cbbbd2192530b7cedfb
+      Authorization:
+      - Basic NzgzYThmMjEtM2ZjNi00ZTM5LWFhNzYtZGE4ZTU2MmZiYTdlOjMxM2NmYWY5YTQwYjQwMjliNzEzOWY0YzlkOGFmYjIz
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '628'
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Xss-Protection:
+      - 1; mode=block
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 17 Feb 2023 14:56:54 GMT
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIzLTAyLTE3VDE1OjU2OjU0LjY1NCIsInNlc3Npb25JZCI6IjQzY2Y1ODBjLTE2MjctNGE5Yy04MzkzLTJkOWUyYjE2NGJmZCJ9.esFByJ58Q5rn_4AIPT1HGyRDG3ax-Y5QYn76MLaFIq7cEPxdk8bQqa1IFHDQEtcdk9a0jbO-tWQ-Yjtk5hubJ1OYhrit59eQ7cbV0_LJeZI3xGNIyVzwOnXd8dw_PEtL_m78twLm9bDDiEQjo7X8ep1hGI8MdFyXBhbGkTMk_fenfJQUEXwrWZolF1U4W5tEkaj_ZOVwGtm1-pjgtnNEgh7DVQ07l7IVxThEZP2X4YdmalifxsM43kzrIZAYYuQ44rtN81FvvOlMI0Pwjaqmrss0BXDJqPbQtjBRTkh6rTOSbZiqq1smecMVYAh3opwvJbisJnOkrROYXLA3XkvraA","token_type":"access_token","expires_in":3600}'
+    http_version:
+  recorded_at: Fri, 17 Feb 2023 14:56:54 GMT
+- request:
+    method: post
+    uri: https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay
+    body:
+      encoding: UTF-8
+      string: '{"payer":{"partyIdType":"MSISDN","partyId":"0775671360"},"payeeNote":"testing","payerMessage":"testing","externalId":"6353636","currency":"EUR","amount":"5.0"}'
+    headers:
+      X-Target-Environment:
+      - sandbox
+      Content-Type:
+      - application/json
+      X-Reference-Id:
+      - f2edf507-b754-4a33-9995-177cd9aa217b
+      Ocp-Apim-Subscription-Key:
+      - b5e0f061fa5a4cbbbd2192530b7cedfb
+      Authorization:
+      - Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSMjU2In0.eyJjbGllbnRJZCI6Ijc4M2E4ZjIxLTNmYzYtNGUzOS1hYTc2LWRhOGU1NjJmYmE3ZSIsImV4cGlyZXMiOiIyMDIzLTAyLTE3VDE1OjU2OjU0LjY1NCIsInNlc3Npb25JZCI6IjQzY2Y1ODBjLTE2MjctNGE5Yy04MzkzLTJkOWUyYjE2NGJmZCJ9.esFByJ58Q5rn_4AIPT1HGyRDG3ax-Y5QYn76MLaFIq7cEPxdk8bQqa1IFHDQEtcdk9a0jbO-tWQ-Yjtk5hubJ1OYhrit59eQ7cbV0_LJeZI3xGNIyVzwOnXd8dw_PEtL_m78twLm9bDDiEQjo7X8ep1hGI8MdFyXBhbGkTMk_fenfJQUEXwrWZolF1U4W5tEkaj_ZOVwGtm1-pjgtnNEgh7DVQ07l7IVxThEZP2X4YdmalifxsM43kzrIZAYYuQ44rtN81FvvOlMI0Pwjaqmrss0BXDJqPbQtjBRTkh6rTOSbZiqq1smecMVYAh3opwvJbisJnOkrROYXLA3XkvraA
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Content-Length:
+      - '0'
+      X-Xss-Protection:
+      - 1; mode=block
+      Request-Context:
+      - appId=cid-v1:e996501c-e721-4ac1-97ff-dc6887b85e8c
+      Date:
+      - Fri, 17 Feb 2023 14:56:55 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Fri, 17 Feb 2023 14:56:55 GMT
+recorded_with: VCR 5.1.0
